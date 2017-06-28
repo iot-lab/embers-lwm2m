@@ -1,1 +1,6 @@
 contiki
+
+# build artefacts
+obj_*
+*.iotlab-m3
+*.a
