@@ -110,8 +110,12 @@
 #include "examples/iotlab/00-configuration/tsch-project-conf.h"
 #include "examples/iotlab/00-configuration/iotlab-project-conf.h"
 
+#ifndef WITH_NON_STORING
+#define WITH_NON_STORING 0 /* Set this to run with non-storing mode */
+#endif /* WITH_NON_STORING */
+
 #undef IOTLAB_WITH_NON_STORING
-#define IOTLAB_WITH_NON_STORING 0 /* Set this to don't run with RPL non-storing mode */
+#define IOTLAB_WITH_NON_STORING WITH_NON_STORING
 
 #undef TSCH_LOG_CONF_LEVEL
 #define TSCH_LOG_CONF_LEVEL 0
