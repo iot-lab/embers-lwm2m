@@ -100,7 +100,7 @@
 #undef UIP_CONF_TCP
 #define UIP_CONF_TCP                   0
 
-/* Turn of DAO ACK to make code smaller */
+/* Turn off DAO ACK to make code smaller */
 #undef RPL_CONF_WITH_DAO_ACK
 #define RPL_CONF_WITH_DAO_ACK          0
 
