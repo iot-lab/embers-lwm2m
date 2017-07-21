@@ -1,14 +1,7 @@
-CONTIKI_PROJECT=border-router
-all: $(CONTIKI_PROJECT) 
+all: border-router
 
 include ../Makefile.config
 
-MODULES += core/net/mac/tsch
-
-CFLAGS += -DPROJECT_CONF_H=\"project-conf.h\"
-
-#linker optimizations
-SMALL=1
 
 PROJECT_SOURCEFILES += slip-bridge.c
 
@@ -20,5 +13,4 @@ CFLAGS += -DWEBSERVER=1
 PROJECT_SOURCEFILES += httpd-simple.c
 endif
 
-CONTIKI_WITH_IPV6 = 1
 include $(CONTIKI)/Makefile.include

@@ -2,9 +2,6 @@ all: er-example-server
 
 include ../Makefile.config
 
-MODULES += core/net/mac/tsch
-
-CFLAGS += -DPROJECT_CONF_H=\"project-conf.h\"
 
 # automatically build RESTful resources
 REST_RESOURCES_DIR = ./resources
@@ -17,5 +14,4 @@ PROJECT_SOURCEFILES += $(REST_RESOURCES_FILES)
 APPS += er-coap
 APPS += rest-engine
 
-CONTIKI_WITH_IPV6 = 1
 include $(CONTIKI)/Makefile.include
