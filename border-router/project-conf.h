@@ -31,9 +31,6 @@
 #ifndef PROJECT_ROUTER_CONF_H_
 #define PROJECT_ROUTER_CONF_H_
 
-#ifndef WITH_NON_STORING
-#define WITH_NON_STORING 0 /* Set this to run with non-storing mode */
-#endif /* WITH_NON_STORING */
 
 #if WITH_NON_STORING
 #undef RPL_NS_CONF_LINK_NUM
@@ -44,34 +41,28 @@
 #define RPL_CONF_MOP RPL_MOP_NON_STORING /* Mode of operation*/
 #endif /* WITH_NON_STORING */
 
+/* SLIP bridge settings */
 #ifndef UIP_FALLBACK_INTERFACE
 #define UIP_FALLBACK_INTERFACE rpl_interface
-#endif
-
-#ifndef QUEUEBUF_CONF_NUM
-#define QUEUEBUF_CONF_NUM          4
-#endif
-
-#ifndef UIP_CONF_BUFFER_SIZE
-#define UIP_CONF_BUFFER_SIZE    1280
 #endif
 
 #ifndef UIP_CONF_RECEIVE_WINDOW
 #define UIP_CONF_RECEIVE_WINDOW  60
 #endif
 
+#undef SLIP_ARCH_CONF_ENABLE
+#define SLIP_ARCH_CONF_ENABLE 1
+
+
+/* Helper web-server configuration */
 #ifndef WEBSERVER_CONF_CFS_CONNS
 #define WEBSERVER_CONF_CFS_CONNS 2
 #endif
 
-#undef SLIP_ARCH_CONF_ENABLE
-#define SLIP_ARCH_CONF_ENABLE 1
-
-#include "examples/iotlab/00-configuration/tsch-project-conf.h"
-#include "examples/iotlab/00-configuration/iotlab-project-conf.h"
-
 /* Do not start TSCH at init, wait for NETSTACK_MAC.on() */
 #undef TSCH_CONF_AUTOSTART
 #define TSCH_CONF_AUTOSTART 0
+
+#include "../network-stack-conf.h"
 
 #endif /* PROJECT_ROUTER_CONF_H_ */

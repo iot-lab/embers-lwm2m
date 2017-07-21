@@ -55,69 +55,10 @@
 
 /////////COAP SERVER////////////
 
-/* Increase rpl-border-router IP-buffer when using more than 64. */
-#undef REST_MAX_CHUNK_SIZE
-#define REST_MAX_CHUNK_SIZE            256
-
-/* Multiplies with chunk size, be aware of memory constraints. */
-#undef COAP_MAX_OPEN_TRANSACTIONS
-#define COAP_MAX_OPEN_TRANSACTIONS     4
-
-/* Must be <= open transactions, default is COAP_MAX_OPEN_TRANSACTIONS-1. */
-/*
-   #undef COAP_MAX_OBSERVERS
-   #define COAP_MAX_OBSERVERS             2
- */
-
-/* Filtering .well-known/core per query can be disabled to save space. */
-#undef COAP_LINK_FORMAT_FILTERING
-#define COAP_LINK_FORMAT_FILTERING     0
-#undef COAP_PROXY_OPTION_PROCESSING
-#define COAP_PROXY_OPTION_PROCESSING   0
-
 /* Enable client-side support for COAP observe */
 #define COAP_OBSERVE_CLIENT 1
 
-////////////////////////////////////
-
-/* Custom channel and PAN ID configuration for your project. */
-/*
-   #undef RF_CHANNEL
-   #define RF_CHANNEL                     26
-
-   #undef IEEE802154_CONF_PANID
-   #define IEEE802154_CONF_PANID          0xABCD
- */
-
-/* IP buffer size must match all other hops, in particular the border router. */
-#undef UIP_CONF_BUFFER_SIZE
-#define UIP_CONF_BUFFER_SIZE           1280
-
-#undef RPL_CONF_MAX_DAG_PER_INSTANCE
-#define RPL_CONF_MAX_DAG_PER_INSTANCE     1
-
-/* Disabling TCP on CoAP nodes. */
-#undef UIP_CONF_TCP
-#define UIP_CONF_TCP                   0
-
-/* Turn off DAO ACK to make code smaller */
-#undef RPL_CONF_WITH_DAO_ACK
-#define RPL_CONF_WITH_DAO_ACK          0
-
-#undef RPL_CONF_OF
-#define RPL_CONF_OF                    rpl_of0
-
-#include "examples/iotlab/00-configuration/tsch-project-conf.h"
-#include "examples/iotlab/00-configuration/iotlab-project-conf.h"
-
-#ifndef WITH_NON_STORING
-#define WITH_NON_STORING 0 /* Set this to run with non-storing mode */
-#endif /* WITH_NON_STORING */
-
-#undef IOTLAB_WITH_NON_STORING
-#define IOTLAB_WITH_NON_STORING WITH_NON_STORING
-
-#undef TSCH_LOG_CONF_LEVEL
-#define TSCH_LOG_CONF_LEVEL 0
+#include "../coap-server-conf.h"
+#include "../network-stack-conf.h"
 
 #endif /* __PROJECT_CONF_H__ */
