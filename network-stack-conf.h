@@ -39,36 +39,3 @@
 
 #include "examples/iotlab/00-configuration/tsch-project-conf.h"
 #include "examples/iotlab/00-configuration/iotlab-project-conf.h"
-
-
-
-#if 0
-
-/*
-   the following settings are defined in
-   border-router/project.conf
-   but could be of general use maybe ?
-*/
-
-#if WITH_NON_STORING
-#undef RPL_NS_CONF_LINK_NUM
-#define RPL_NS_CONF_LINK_NUM 40 /* Number of links maintained at the root */
-#undef UIP_CONF_MAX_ROUTES
-#define UIP_CONF_MAX_ROUTES 0 /* No need for routes */
-#undef RPL_CONF_MOP
-#define RPL_CONF_MOP RPL_MOP_NON_STORING /* Mode of operation*/
-#endif /* WITH_NON_STORING */
-
-#ifndef QUEUEBUF_CONF_NUM
-#define QUEUEBUF_CONF_NUM          4
-#endif
-
-#ifndef UIP_CONF_RECEIVE_WINDOW
-#define UIP_CONF_RECEIVE_WINDOW  60
-#endif
-
-/* Do not start TSCH at init, wait for NETSTACK_MAC.on() */
-#undef TSCH_CONF_AUTOSTART
-#define TSCH_CONF_AUTOSTART 0
-
-#endif
