@@ -59,10 +59,10 @@
 #define WEBSERVER_CONF_CFS_CONNS 2
 #endif
 
+#include "../network-stack-conf.h"
+
 /* Do not start TSCH at init, wait for NETSTACK_MAC.on() */
 #undef TSCH_CONF_AUTOSTART
 #define TSCH_CONF_AUTOSTART 0
-
-#include "../network-stack-conf.h"
 
 #endif /* PROJECT_ROUTER_CONF_H_ */
