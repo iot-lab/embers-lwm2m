@@ -50,7 +50,7 @@
 #endif
 
 #ifndef LWM2M_SERVER_ADDRESS
-#define LWM2M_SERVER_ADDRESS "fd00::1"
+#define LWM2M_SERVER_ADDRESS "2001:41d0:8:95ce::1"  /* leshan.eclipse.org */
 #endif
 
 /////////COAP SERVER////////////
